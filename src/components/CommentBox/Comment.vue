@@ -12,6 +12,7 @@
                 <div class="cmt-body">
                     哈哈哈哈
                 </div>
+                
             </div>
         </div>
         <mt-button type="danger" size="large" plain>加载更多</mt-button>
@@ -41,6 +42,7 @@
          .cmt-item{
              font-size: 13px;
              .cmt-title{
+                margin-top: 5px;
                  line-height: 30px;
                  background-color: #ccc;
              }
