@@ -5,6 +5,8 @@ import HomeContainer from './components/tabbar/HomeContainer.vue'
 import MemberContainer from './components/tabbar/MemberContainer.vue'
 import SearchContainer from './components/tabbar/SearchContainer.vue'
 import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
+import NewsList from './components/news/NewsList.vue'
+import NewsInfo from './components/news/NewsInfo.vue'
 
 var routerObj=new VueRouter({
     routes: [
@@ -12,7 +14,10 @@ var routerObj=new VueRouter({
         { path : '/home',component:HomeContainer},
         { path : '/member',component:MemberContainer},
         { path : '/search',component:SearchContainer},
-        { path : '/shopcar',component:ShopcarContainer}
+        { path : '/shopcar',component:ShopcarContainer},
+        { path : '/home/newslist',component:NewsList},
+        { path : '/home/newslist/:id',component:NewsInfo}
+
         
     ],
     linkActiveClass:'mui-active'//linkActiveClass构造自定义一个css类来全局配置router-link的css样式 

@@ -42,6 +42,7 @@
 <style lang="scss" scoped>
 .app-Header{
     padding-top:40px ;
+		padding-bottom: 40px;
 	overflow-x: hidden;
 }
 .v-enter,
