@@ -3,7 +3,7 @@
         <!-- 轮播图区域 -->
   <mt-swipe :auto="4000">
   <mt-swipe-item v-for="item in list" :key="item.id">
-    <img :src="item.url"></img>
+    <img :src="item.url">      
   </mt-swipe-item>
  </mt-swipe>
         <!-- 九宫格改造成六宫格 -->
@@ -14,12 +14,12 @@
 		                    <div class="mui-media-body">新闻资讯</div>
                         </router-link>
 		                  </li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link  to="/home/photolist">
 		                   <img src=../../imags/2.png alt="">
-		                    <div class="mui-media-body">图片分享</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <div class="mui-media-body">图片分享</div></router-link ></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/goodslist">
 		                   <img src=../../imags/3.png alt="">
-		                    <div class="mui-media-body">商品购买</div></a></li>
+		                    <div class="mui-media-body">商品购买</div></router-link></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                   <img src=../../imags/4.png alt="">
 		                    <div class="mui-media-body">留言反馈</div></a></li>
