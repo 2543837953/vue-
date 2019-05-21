@@ -40,7 +40,7 @@
         getComment(){  //获取评论
             this.$http.get('data/'+this.id+"?pageIndex="+this.pageIndex)
             .then(result=>{
-                var result=result.body.newsid.comment;
+                var result=result.body.comment;
                 //每当获取到新评论数据的时候，不要把老数据清空覆盖，而是应该以老数据 拼接上新数据
                 this.commennts=this.commennts.concat(result);
              

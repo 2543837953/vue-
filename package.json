@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "webpack-dev-server --open  --port 3001 --contentBase src --hot --host 192.168.3.174",
+    "dev": "webpack-dev-server --open  --port 3001 --contentBase src --hot",
     "json:server": "json-server --watch  db.json"
   },
   "keywords": [],

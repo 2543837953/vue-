@@ -1,7 +1,24 @@
 <template>
-    <div>
-        <div class="goods-list">
-            <div class="goods-item" v-for="item in goodslist" :key="item">
+    
+        <!-- <div class="goods-list">
+            <router-link class="goods-item" v-for="item in goodslist" :key="item.id" :to="'/home/goodslist/'+item.id" tag="div">
+                <img :src="item.img" alt="">
+                <h1 class="title">{{item.title}}</h1>
+                <div class="info">
+                    <p class="price">
+                        <span class="now">￥{{item.now}}</span>
+                        <span class="old">￥{{item.old}}</span>
+                    </p>
+                    <p class="sell">
+                        <span>热卖中</span>
+                        <span>剩余{{item.remaining}}件</span>
+                    </p>
+                </div>
+            </router-link>
+        <mt-button type="danger" size='large'>加载更多</mt-button>
+    </div> -->
+      <div class="goods-list">
+            <div class="goods-item" v-for="item in goodslist" :key="item.id" v-on:click="getList(item.id)">
                 <img :src="item.img" alt="">
                 <h1 class="title">{{item.title}}</h1>
                 <div class="info">
@@ -15,50 +32,36 @@
                     </p>
                 </div>
             </div>
-            
-        </div>
+        <mt-button type="danger" size='large'>加载更多</mt-button>
     </div>
+
+    
 </template>
 
 <script>
+import { parse } from 'querystring';
     export default {
         data(){
             return{
-                goodslist:[
-                    {
-                    img:'https://img.alicdn.com/imgextra/i3/51673455/O1CN01mdXnj31bOQtXQ7PUq_!!0-saturn_solar.jpg_220x220.jpg_.webp',
-                    title:'大金空气净化器家用除甲醛雾霾PM2.5',
-                    now:1900,
-                    old:2000,
-                    remaining:100
-
-                    },
-                    {
-                    img:'https://img.alicdn.com/imgextra/i3/24232930/O1CN01IvMxZe1XVz03PGieC_!!0-saturn_solar.jpg_220x220.jpg_.webp',
-                    title:'黑白调电脑椅家用舒适转椅可躺办公椅电竞椅黑白调旗舰店6485人付款',
-                    now:190,
-                    old:200,
-                     remaining:108
-                    },
-                    {
-                    img:'https://img.alicdn.com/imgextra/i2/12913813/O1CN01DkGwpi1e2Oh2QpQeV_!!0-saturn_solar.jpg_220x220.jpg_.webp',
-                    title:'林氏木业北欧简约现代沙发床小户型布艺沙发',
-                    now:800,
-                    old:899,
-                     remaining:10
-                    },
-                    {
-                     img:'https://img.alicdn.com/imgextra/i2/57180258/O1CN01abUKGW1DmChgpzdke_!!0-saturn_solar.jpg_220x220.jpg_.webp',
-                     title:'热销7万余件弹簧乳胶床垫椰棕垫 席梦思定制铂马仕旗舰店827人付款',
-                    now:500,
-                    old:599,
-                     remaining:159
-                    }
-
-                ]
+                goodslist:[]
            
                 
             }
+        },
+        methods:{
+            getList(id){
+                this.$router.push({name:'goodslist',params:{id}})
+            },
+
+            getGoodsList(){
+             this.$http.get('goods').then((result) => {
+                var result=result.body
+                this.goodslist=result
+             })
+            }
+        },
+        created(){
+            this.getGoodsList();
         }
     }
 </script>

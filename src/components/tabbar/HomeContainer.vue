@@ -1,11 +1,7 @@
 <template>
     <div>
         <!-- 轮播图区域 -->
-  <mt-swipe :auto="4000">
-  <mt-swipe-item v-for="item in list" :key="item.id">
-    <img :src="item.url">      
-  </mt-swipe-item>
- </mt-swipe>
+    <swiper :lunbotuList=list :isfull=true></swiper>
         <!-- 九宫格改造成六宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -37,7 +33,7 @@
 </template>
 
 <script>
-
+import swiper from '../CommentBox/swiper.vue'
     export default {
         data(){
             return{
@@ -58,6 +54,9 @@
             })
 
             }
+        },
+        components:{
+        swiper
         }
     }
 </script>
