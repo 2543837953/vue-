@@ -100,6 +100,12 @@ import numbox from '../CommentBox/GoodsInfo_numbox.vue'
             },
             goBallFlag(){
                 this.ballFlag=!this.ballFlag;
+                //拼接出一个，要保存到store中的car数组里的商品信息对象
+                var goodsinfo={id:this.id,
+                count:this.selectedCount,
+                price:this.infoList.now,
+                selected:true}
+                this.$store.commit('addToCar',goodsinfo)
             },
             beforeEnter(el){
                 el.style.transform="translate(0,0)"
